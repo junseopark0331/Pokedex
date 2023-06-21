@@ -54,7 +54,9 @@ extension PokemonListViewController: UITableViewDataSource {
         cell.pokemonNumberLabel.text = "\(indexPath.row)"
         cell.pokemonImage.kf.setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
         
+        
         PokemonApi().getData(completion: { url in
+            print(url[indexPath.row].name)
             cell.pokemonNameLabel.text = url[indexPath.row].name
         })
         
