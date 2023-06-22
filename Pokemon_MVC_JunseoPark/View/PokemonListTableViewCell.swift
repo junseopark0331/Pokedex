@@ -15,7 +15,7 @@ class PokemonListTableViewCell: UITableViewCell {
     }
     
     let pokemonNameLabel = UILabel().then{
-        $0.textColor = UIColor.blue
+        $0.textColor = UIColor.black
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -23,6 +23,7 @@ class PokemonListTableViewCell: UITableViewCell {
         
         addContentView()
         autoLayout()
+        
     }
     
     required init?(coder: NSCoder) {

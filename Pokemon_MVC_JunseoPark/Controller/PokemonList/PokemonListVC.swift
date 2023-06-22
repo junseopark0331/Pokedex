@@ -51,22 +51,38 @@ extension PokemonListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonListTableViewCell.identifier, for: indexPath) as! PokemonListTableViewCell
-        cell.pokemonNumberLabel.text = "\(indexPath.row)"
+        cell.pokemonNumberLabel.text = "\(indexPath.row + 1)"
         cell.pokemonImage.kf.setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
         
         
         PokemonApi().getData(completion: { url in
-            print(url[indexPath.row].name)
             cell.pokemonNameLabel.text = url[indexPath.row].name
         })
         
         return cell
     }
+    
 }
 
 extension PokemonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("select \(indexPath.row)")
+        
+        PokemonSelectedApi().getData(url: "https://pokeapi.co/api/v2/pokemon/\(indexPath.row + 1)/",
+                                     completion: { result in
+            
+            let pokemonInfoVC = PokemonInformationViewController()
+            
+            pokemonInfoVC.pokemonImageURL = result.sprites.front_default ?? ""
+            pokemonInfoVC.pokemonName = result.name
+            pokemonInfoVC.pokemonId = result.id
+            pokemonInfoVC.pokemonWeight = result.weight
+            pokemonInfoVC.pokemonHeight = result.height
+
+             self.navigationController?.pushViewController(pokemonInfoVC, animated: true)
+            
+        })
+
     }
+    
 }
                         
