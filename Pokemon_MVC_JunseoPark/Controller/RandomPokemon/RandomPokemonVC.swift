@@ -10,10 +10,6 @@ class RandomPokemonViewController: UIViewController {
         
         configure()
         
-        PokemonSelectedApi().getData(url: "https://pokeapi.co/api/v2/pokemon/\(1)/",
-                                     completion: { result in
-            
-        })
     }
     
     private func configure(){

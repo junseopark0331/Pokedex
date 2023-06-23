@@ -55,7 +55,7 @@ extension PokemonListViewController: UITableViewDataSource {
         cell.pokemonImage.kf.setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
         
         
-        PokemonApi().getData(completion: { url in
+        PokemonListApi().getPokemonListData(completion: { url in
             cell.pokemonNameLabel.text = url[indexPath.row].name
         })
         
@@ -67,7 +67,7 @@ extension PokemonListViewController: UITableViewDataSource {
 extension PokemonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        PokemonSelectedApi().getData(url: "https://pokeapi.co/api/v2/pokemon/\(indexPath.row + 1)/",
+        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(indexPath.row + 1)/",
                                      completion: { result in
             
             let pokemonInfoVC = PokemonInformationViewController()

@@ -10,8 +10,8 @@ struct PokemonEntry: Codable, Identifiable {
     var url: String?
 }
 
-class PokemonApi {
-    func getData(completion: @escaping ([PokemonEntry]) -> ()) {
+class PokemonListApi {
+    func getPokemonListData(completion: @escaping ([PokemonEntry]) -> ()) {
         
         guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151") else {
             return

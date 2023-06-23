@@ -51,8 +51,15 @@ class PokemonInformationViewController: UIViewController {
         nameLabel.text = "이름 : \(pokemonName)"
         weightLabel.text = "무게 : \(pokemonWeight/10)kg"
         heightLabel.text = "키 : \(pokemonHeight/10)m"
+        
+        PokemonGenerationApi().getPokemonGenerationData(url: "https://pokeapi.co/api/v2/generation/1/",
+                                     completion: { result in
+            print(result.name)
+            print(result.types[2])
+            print(result.types[1])
+        })
+
     }
-    
     
     private func addView(){
         view.addSubview(pokemonImage)
@@ -64,7 +71,7 @@ class PokemonInformationViewController: UIViewController {
     
     private func autoLayout(){
         self.pokemonImage.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(40)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.centerX.equalTo(view.center)
             $0.height.width.equalTo(200)
         }
