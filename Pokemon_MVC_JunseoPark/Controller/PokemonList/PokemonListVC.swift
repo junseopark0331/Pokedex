@@ -53,7 +53,7 @@ extension PokemonListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonListTableViewCell.identifier, for: indexPath) as! PokemonListTableViewCell
         cell.pokemonNumberLabel.text = "\(indexPath.row + 1)"
         cell.pokemonImage.kf.setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
-        
+
         
         PokemonListApi().getPokemonListData(completion: { url in
             cell.pokemonNameLabel.text = url[indexPath.row].name

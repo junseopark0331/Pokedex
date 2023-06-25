@@ -9,9 +9,6 @@ class SearchPokemonViewController: UIViewController {
         view.backgroundColor = .white
         
         configure()
-        
-        
-        
     }
     
     private func configure(){

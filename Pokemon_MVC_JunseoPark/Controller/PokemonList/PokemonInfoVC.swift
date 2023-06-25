@@ -15,7 +15,6 @@ class PokemonInformationViewController: UIViewController {
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 100
-
     }
     
     private let idLabel = UILabel().then{
