@@ -46,7 +46,7 @@ final class PokemonListViewController: UIViewController {
 extension PokemonListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 151
+        return 1010
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

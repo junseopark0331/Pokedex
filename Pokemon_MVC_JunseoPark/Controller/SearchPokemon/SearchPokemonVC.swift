@@ -24,7 +24,7 @@ final class SearchPokemonViewController: UIViewController {
         $0.textColor = .black
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -36,19 +36,19 @@ final class SearchPokemonViewController: UIViewController {
     
     private func configure(){
         self.navigationItem.title = "Search Pokemon"
-        self.navigationItem.accessibilityLabel = "Search Pokemon By Name"
+        self.navigationItem.accessibilityLabel = "Search Pokemon By ID"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Search Pokemon By Name"
+        searchController.searchBar.placeholder = "Search Pokemon By ID"
         searchController.hidesNavigationBarDuringPresentation = false
-
+        
         searchController.searchResultsUpdater = self
-
+        
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
-
+    
     private func addSubView(){
         view.addSubview(pokemonImage)
         view.addSubview(nameLabel)
@@ -83,7 +83,7 @@ final class SearchPokemonViewController: UIViewController {
     
     func pokemonInfo(pokemonNumber: Int){
         SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { result in
-
+            
             self.pokemonImage.kf.setImage(with: URL(string: result.sprites.front_default!))
             self.idLabel.text = "고유번호 : \(result.id)"
             self.nameLabel.text = "이름 : \(result.name)"
@@ -103,6 +103,18 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
         
         if let number = pokemonNumber {
             pokemonInfo(pokemonNumber: number)
+            if number > 1010 {
+                let alert = UIAlertController(title: "", message: "1010 이하의 숫자를 입력해주세요", preferredStyle: .alert )
+                let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true)
+
+                searchController.searchBar.text = ""
+            }
+            
+        } else {
+            print("오류")
         }
         
     }
