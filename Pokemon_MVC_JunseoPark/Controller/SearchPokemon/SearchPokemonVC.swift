@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SearchPokemonViewController: UIViewController {
+final class SearchPokemonViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,7 @@ class SearchPokemonViewController: UIViewController {
         self.navigationItem.searchController = searchController
         
         self.navigationItem.title = "Search Pokemon"
+//        self.navigationItem.accessibilityLabel = "Search Pokemon By Name"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 

@@ -3,7 +3,7 @@ import SnapKit
 import Then
 import Kingfisher
 
-class PokemonListViewController: UIViewController {
+final class PokemonListViewController: UIViewController {
     
     var pokemon = [PokemonEntry]()
     

@@ -3,7 +3,7 @@ import SnapKit
 import Then
 import Kingfisher
 
-class PokemonInformationViewController: UIViewController {
+final class PokemonInformationViewController: UIViewController {
     
     var pokemonImageURL = ""
     var pokemonId = 0
@@ -50,13 +50,6 @@ class PokemonInformationViewController: UIViewController {
         nameLabel.text = "이름 : \(pokemonName)"
         weightLabel.text = "무게 : \(pokemonWeight/10)kg"
         heightLabel.text = "키 : \(pokemonHeight/10)m"
-        
-        PokemonGenerationApi().getPokemonGenerationData(url: "https://pokeapi.co/api/v2/generation/1/",
-                                     completion: { result in
-            print(result.name)
-            print(result.types[2])
-            print(result.types[1])
-        })
 
     }
     
@@ -91,6 +84,4 @@ class PokemonInformationViewController: UIViewController {
             $0.centerX.equalTo(view.center)
         }
     }
-    
-    
 }
