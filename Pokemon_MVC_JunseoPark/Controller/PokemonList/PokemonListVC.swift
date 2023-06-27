@@ -7,6 +7,8 @@ final class PokemonListViewController: UIViewController {
     
     var pokemon = [PokemonEntry]()
     
+    private let refreshControl = UIRefreshControl()
+    
     
     private let tableView = UITableView().then{
         $0.register(PokemonListTableViewCell.self, forCellReuseIdentifier: PokemonListTableViewCell.identifier)
@@ -19,6 +21,7 @@ final class PokemonListViewController: UIViewController {
         configure()
         addView()
         autoLayout()
+        initRefresh()
         
     }
     private func configure(){
@@ -41,19 +44,33 @@ final class PokemonListViewController: UIViewController {
         }
     }
     
+    func initRefresh() {
+        refreshControl.addTarget(self, action: #selector(refreshTable(refresh:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        tableView.refreshControl = refreshControl
+    }
+    
+    @objc func refreshTable(refresh: UIRefreshControl) {
+            print("새로고침 시작")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.tableView.reloadData()
+                refresh.endRefreshing()
+            }
+        }
 }
 
 extension PokemonListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1010
+        return 151
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PokemonListTableViewCell.identifier, for: indexPath) as! PokemonListTableViewCell
         cell.pokemonNumberLabel.text = "\(indexPath.row + 1)"
         cell.pokemonImage.kf.setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
-
+        
         
         PokemonListApi().getPokemonListData(completion: { url in
             cell.pokemonNameLabel.text = url[indexPath.row].name
@@ -68,7 +85,7 @@ extension PokemonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(indexPath.row + 1)/",
-                                     completion: { result in
+                                                    completion: { result in
             
             let pokemonInfoVC = PokemonInformationViewController()
             
@@ -77,12 +94,12 @@ extension PokemonListViewController: UITableViewDelegate {
             pokemonInfoVC.pokemonId = result.id
             pokemonInfoVC.pokemonWeight = result.weight
             pokemonInfoVC.pokemonHeight = result.height
-
-             self.navigationController?.pushViewController(pokemonInfoVC, animated: true)
+            
+            self.navigationController?.pushViewController(pokemonInfoVC, animated: true)
             
         })
-
+        
     }
     
 }
-                        
+

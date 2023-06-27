@@ -18,6 +18,8 @@
 		785591952A3D7F8C00AEEEF4 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785591942A3D7F8C00AEEEF4 /* TabbarViewController.swift */; };
 		785591982A3D8A0500AEEEF4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 785591972A3D8A0500AEEEF4 /* Kingfisher */; };
 		7855919A2A3D8F3100AEEEF4 /* PokemonListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785591992A3D8F3100AEEEF4 /* PokemonListTableViewCell.swift */; };
+		785B889F2A49B18F00B85BDC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 785B889E2A49B18F00B85BDC /* RxCocoa */; };
+		785B88A12A49B18F00B85BDC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 785B88A02A49B18F00B85BDC /* RxSwift */; };
 		7875D05A2A40415600C6DF4C /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875D0592A40415600C6DF4C /* Pokemon.swift */; };
 		7875D05C2A40465D00C6DF4C /* PokemonSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875D05B2A40465D00C6DF4C /* PokemonSelected.swift */; };
 		78785BD02A4331A90000AD4F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 78785BCF2A4331A90000AD4F /* SnapKit */; };
@@ -50,6 +52,8 @@
 			files = (
 				78785BD02A4331A90000AD4F /* SnapKit in Frameworks */,
 				785591982A3D8A0500AEEEF4 /* Kingfisher in Frameworks */,
+				785B88A12A49B18F00B85BDC /* RxSwift in Frameworks */,
+				785B889F2A49B18F00B85BDC /* RxCocoa in Frameworks */,
 				785591922A3D7C4C00AEEEF4 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +174,8 @@
 				785591912A3D7C4C00AEEEF4 /* Then */,
 				785591972A3D8A0500AEEEF4 /* Kingfisher */,
 				78785BCF2A4331A90000AD4F /* SnapKit */,
+				785B889E2A49B18F00B85BDC /* RxCocoa */,
+				785B88A02A49B18F00B85BDC /* RxSwift */,
 			);
 			productName = Beer_MVC_JunseoPark;
 			productReference = 7855916F2A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark.app */;
@@ -203,6 +209,7 @@
 				785591902A3D7C4C00AEEEF4 /* XCRemoteSwiftPackageReference "Then" */,
 				785591962A3D8A0500AEEEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				78785BCE2A4331A90000AD4F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				785B889D2A49B18F00B85BDC /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 785591702A3D799E00AEEEF4 /* Products */;
 			projectDirPath = "";
@@ -474,6 +481,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		785B889D2A49B18F00B85BDC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		78785BCE2A4331A90000AD4F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -494,6 +509,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 785591962A3D8A0500AEEEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		785B889E2A49B18F00B85BDC /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 785B889D2A49B18F00B85BDC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		785B88A02A49B18F00B85BDC /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 785B889D2A49B18F00B85BDC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		78785BCF2A4331A90000AD4F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

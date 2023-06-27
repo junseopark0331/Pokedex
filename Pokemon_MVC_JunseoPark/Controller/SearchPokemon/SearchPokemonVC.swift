@@ -4,6 +4,8 @@ import Then
 
 final class SearchPokemonViewController: UIViewController {
     
+    weak var searchBar: UISearchBar!
+    
     private let pokemonImage = UIImageView().then{
         $0.layer.cornerRadius = 100
     }
@@ -34,6 +36,8 @@ final class SearchPokemonViewController: UIViewController {
         setLayout()
     }
     
+    
+    
     private func configure(){
         self.navigationItem.title = "Search Pokemon"
         self.navigationItem.accessibilityLabel = "Search Pokemon By ID"
@@ -42,12 +46,15 @@ final class SearchPokemonViewController: UIViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search Pokemon By ID"
         searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.searchTextField.keyboardType = .numberPad
+        
+        searchController.searchResultsUpdater = self
         
         searchController.searchResultsUpdater = self
         
         self.navigationItem.searchController = searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
     
     private func addSubView(){
         view.addSubview(pokemonImage)
@@ -106,10 +113,10 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
             if number > 1010 {
                 let alert = UIAlertController(title: "", message: "1010 이하의 숫자를 입력해주세요", preferredStyle: .alert )
                 let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-
+                
                 alert.addAction(defaultAction)
                 self.present(alert, animated: true)
-
+                
                 searchController.searchBar.text = ""
             }
             
@@ -118,4 +125,25 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
         }
         
     }
+   
 }
+
+extension SearchPokemonViewController: UISearchBarDelegate {
+    
+    func dismissKeyboard() {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarsearchButtonClicked(_ searchBar: UISearchBar){
+        dismissKeyboard()
+        guard let searchTerm = searchBar.text,
+              searchTerm.isEmpty == false else {return}
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            searchController.searchBar.becomeFirstResponder()
+        }
+    }
+}
+

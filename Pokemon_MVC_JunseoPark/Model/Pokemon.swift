@@ -13,7 +13,7 @@ struct PokemonEntry: Codable, Identifiable {
 class PokemonListApi {
     func getPokemonListData(completion: @escaping ([PokemonEntry]) -> ()) {
         
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1010") else {
+        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151") else {
             return
         }
         

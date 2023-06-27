@@ -2,6 +2,8 @@ import UIKit
 import SnapKit
 import Then
 import Kingfisher
+import RxCocoa
+import RxSwift
 
 final class RandomPokemonViewController: UIViewController {
     
@@ -45,6 +47,11 @@ final class RandomPokemonViewController: UIViewController {
         addSubView()
         setLayout()
         randomPokemon()
+        
+        randomButton.rx.tap
+            .subscribe(onNext: {
+                print("Observable이 항목을 방출했다!")
+            })
     }
     
     private func configure(){
