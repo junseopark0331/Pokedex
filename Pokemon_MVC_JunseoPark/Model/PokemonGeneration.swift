@@ -11,7 +11,7 @@ struct PokemonType: Codable{
     var url: String?
 }
 
-class PokemonGenerationApi {
+final class PokemonGenerationApi {
     func getPokemonGenerationData(url: String, completion: @escaping (PokemonGeneration) -> ()) {
         
         guard let url = URL(string: url) else { return }

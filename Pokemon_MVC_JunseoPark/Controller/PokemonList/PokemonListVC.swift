@@ -9,7 +9,6 @@ final class PokemonListViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     
-    
     private let tableView = UITableView().then{
         $0.register(PokemonListTableViewCell.self, forCellReuseIdentifier: PokemonListTableViewCell.identifier)
     }

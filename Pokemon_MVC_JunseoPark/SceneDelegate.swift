@@ -16,9 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
         
         window = UIWindow(windowScene: windowScene)
-//        let nav = UINavigationController(rootViewController: PokemonInformationViewController())
-        let nav = TabbarViewController()
-        window?.rootViewController = nav
+        let rootVC = PokemonInformationViewController()
+        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
         
         }

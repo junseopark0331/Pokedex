@@ -12,7 +12,7 @@ struct PokemonSprites: Codable {
     var front_default: String?
 }
 
-class SelectedPokemonApi {
+final class SelectedPokemonApi {
     func getSelectedPokemonData(url: String, completion: @escaping (PokemonSelected) -> ()) {
         
         guard let url = URL(string: url) else { return }
