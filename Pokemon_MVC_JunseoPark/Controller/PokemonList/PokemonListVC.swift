@@ -45,18 +45,17 @@ final class PokemonListViewController: UIViewController {
     
     func initRefresh() {
         refreshControl.addTarget(self, action: #selector(refreshTable(refresh:)), for: .valueChanged)
-        refreshControl.attributedTitle = NSAttributedString(string: "당겨서 새로고침")
+        refreshControl.attributedTitle = NSAttributedString(string: "포켓몬 새로고침중..!")
         tableView.refreshControl = refreshControl
+        tableView.reloadData()
     }
     
     @objc func refreshTable(refresh: UIRefreshControl) {
-            print("새로고침 시작")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.tableView.reloadData()
-                refresh.endRefreshing()
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.tableView.reloadData()
+            refresh.endRefreshing()
         }
+    }
 }
 
 extension PokemonListViewController: UITableViewDataSource {

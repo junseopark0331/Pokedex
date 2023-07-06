@@ -5,7 +5,6 @@ import Kingfisher
 
 class PokemonInformationView: UIView {
     
-
     private let pokemonImage = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 1
