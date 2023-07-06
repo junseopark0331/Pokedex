@@ -47,7 +47,6 @@ final class PokemonListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshTable(refresh:)), for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "포켓몬 새로고침중..!")
         tableView.refreshControl = refreshControl
-        tableView.reloadData()
     }
     
     @objc func refreshTable(refresh: UIRefreshControl) {

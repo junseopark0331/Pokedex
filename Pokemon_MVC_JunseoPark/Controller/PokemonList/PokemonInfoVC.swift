@@ -50,7 +50,6 @@ final class PokemonInformationViewController: UIViewController {
         nameLabel.text = "이름 : \(pokemonName)"
         weightLabel.text = "무게 : \(pokemonWeight/10)kg"
         heightLabel.text = "키 : \(pokemonHeight/10)m"
-
     }
     
     private func addView(){

@@ -5,6 +5,28 @@ import Kingfisher
 
 class PokemonInformationView: UIView {
     
+    init(
+        pokemonImageUrl: String,
+        id: String,
+        name: String,
+        weight: Double,
+        height: Double)
+    {
+        super.init(frame: .zero)
+        pokemonImage.kf.setImage(with: URL(string: pokemonImageUrl))
+        idLabel.text = "고유번호 : \(id)"
+        nameLabel.text = "이름 : \(name)"
+        weightLabel.text = "무게 : \(weight/10)kg"
+        heightLabel.text = "키 : \(height/10)m"
+        
+        addView()
+        autoLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     private let pokemonImage = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 1
@@ -32,13 +54,6 @@ class PokemonInformationView: UIView {
         autoLayout()
     }
     
-//    func configure(model: Beer){
-//        pokemonImage.kf.setImage(with: URL(string: model.pokemonImageURL))
-//        idLabel.text = "고유번호 : \(model.pokemonId)"
-//        nameLabel.text = "이름 : \(model.pokemonName)"
-//        weightLabel.text = "무게 : \(model.pokemonWeight/10)kg"
-//        heightLabel.text = "키 : \(model.pokemonHeight/10)m"
-//    }
     
     private func addView(){
         addSubview(pokemonImage)
