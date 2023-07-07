@@ -3,14 +3,15 @@ import SnapKit
 import Then
 import Kingfisher
 
-class PokemonInformationView: UIView {
+class PokemonInfoView: UIView {
     
     init(
         pokemonImageUrl: String,
         id: String,
         name: String,
         weight: Double,
-        height: Double)
+        height: Double
+    )
     {
         super.init(frame: .zero)
         pokemonImage.kf.setImage(with: URL(string: pokemonImageUrl))
@@ -27,25 +28,25 @@ class PokemonInformationView: UIView {
         super.init(coder: coder)
     }
     
-    private let pokemonImage = UIImageView().then{
+    let pokemonImage = UIImageView().then{
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 100
     }
     
-    private let idLabel = UILabel().then{
+    let idLabel = UILabel().then{
         $0.textColor = .black
     }
     
-    private let nameLabel = UILabel().then{
+     let nameLabel = UILabel().then{
         $0.textColor = .black
     }
     
-    private let weightLabel = UILabel().then{
+    let weightLabel = UILabel().then{
         $0.textColor = .black
     }
     
-    private let heightLabel = UILabel().then{
+    let heightLabel = UILabel().then{
         $0.textColor = .black
     }
     
@@ -53,7 +54,6 @@ class PokemonInformationView: UIView {
         addView()
         autoLayout()
     }
-    
     
     private func addView(){
         addSubview(pokemonImage)

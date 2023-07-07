@@ -6,26 +6,7 @@ final class SearchPokemonViewController: UIViewController {
     
     weak var searchBar: UISearchBar!
     
-    private let pokemonImage = UIImageView().then{
-        $0.layer.cornerRadius = 100
-    }
-    
-    private let idLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
-    private let nameLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
-    private let weightLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
-    private let heightLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
+    private let pokemonInfoView = PokemonInfoView(coder: <#NSCoder#>)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +16,6 @@ final class SearchPokemonViewController: UIViewController {
         addSubView()
         setLayout()
     }
-    
-    
     
     private func configure(){
         self.navigationItem.title = "Search Pokemon"
@@ -57,45 +36,24 @@ final class SearchPokemonViewController: UIViewController {
     
     
     private func addSubView(){
-        view.addSubview(pokemonImage)
-        view.addSubview(nameLabel)
-        view.addSubview(idLabel)
-        view.addSubview(weightLabel)
-        view.addSubview(heightLabel)
+        view.addSubview(pokemonInfoView)
     }
     
     private func setLayout(){
-        self.pokemonImage.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.centerX.equalTo(view.center)
-            $0.height.width.equalTo(200)
-        }
-        self.idLabel.snp.makeConstraints{
-            $0.top.equalTo(pokemonImage.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
-        }
-        self.nameLabel.snp.makeConstraints{
-            $0.top.equalTo(idLabel.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
-        }
-        self.weightLabel.snp.makeConstraints{
-            $0.top.equalTo(nameLabel.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
-        }
-        self.heightLabel.snp.makeConstraints{
-            $0.top.equalTo(weightLabel.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
+        self.pokemonInfoView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
         }
     }
     
+    
     func pokemonInfo(pokemonNumber: Int){
-        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { result in
+        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { [self] result in
             
-            self.pokemonImage.kf.setImage(with: URL(string: result.sprites.front_default!))
-            self.idLabel.text = "고유번호 : \(result.id)"
-            self.nameLabel.text = "이름 : \(result.name)"
-            self.weightLabel.text = "무게 : \(result.weight/10)kg"
-            self.heightLabel.text = "키 : \(result.height/10)m"
+            self.pokemonInfoView.pokemonImage.kf.setImage(with: URL(string: result.sprites.front_default!))
+            self.pokemonInfoView.idLabel.text = "고유번호 : \(result.id)"
+            self.pokemonInfoView.nameLabel.text = "이름 : \(result.name)"
+            self.pokemonInfoView.weightLabel.text = "무게 : \(result.weight/10)kg"
+            self.pokemonInfoView.heightLabel.text = "키 : \(result.height/10)m"
         }
         )
     }
@@ -110,6 +68,7 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
         
         if let number = pokemonNumber {
             pokemonInfo(pokemonNumber: number)
+            
             if number > 1010 {
                 let alert = UIAlertController(title: "", message: "1010 이하의 숫자를 입력해주세요", preferredStyle: .alert )
                 let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
