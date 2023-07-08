@@ -7,27 +7,7 @@ import RxSwift
 
 final class RandomPokemonViewController: UIViewController {
     
-    private let pokemonImage = UIImageView().then{
-        $0.layer.borderColor = UIColor.black.cgColor
-        $0.layer.borderWidth = 1
-        $0.layer.cornerRadius = 100
-    }
-    
-    private let idLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
-    private let nameLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
-    private let weightLabel = UILabel().then{
-        $0.textColor = .black
-    }
-    
-    private let heightLabel = UILabel().then{
-        $0.textColor = .black
-    }
+    private let randomPokemonInfoView = PokemonInfoView()
     
     private let randomButton = UIButton().then{
         $0.tintColor = UIColor.white
@@ -60,40 +40,18 @@ final class RandomPokemonViewController: UIViewController {
     }
     
     private func addSubView(){
-        view.addSubview(pokemonImage)
-        view.addSubview(nameLabel)
-        view.addSubview(idLabel)
-        view.addSubview(weightLabel)
-        view.addSubview(heightLabel)
+        view.addSubview(randomPokemonInfoView)
         view.addSubview(randomButton)
     }
     
     private func setLayout(){
-        self.pokemonImage.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-            $0.centerX.equalTo(view.center)
-            $0.height.width.equalTo(200)
-        }
-        self.idLabel.snp.makeConstraints{
-            $0.top.equalTo(pokemonImage.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
-        }
-        self.nameLabel.snp.makeConstraints{
-            $0.top.equalTo(idLabel.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
-        }
-        self.weightLabel.snp.makeConstraints{
-            $0.top.equalTo(nameLabel.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
-        }
-        self.heightLabel.snp.makeConstraints{
-            $0.top.equalTo(weightLabel.snp.bottom).offset(20)
-            $0.centerX.equalTo(view.center)
+        self.randomPokemonInfoView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
         }
         self.randomButton.snp.makeConstraints{
             $0.height.equalTo(48)
             $0.width.equalTo(240)
-            $0.top.equalTo(heightLabel.snp.bottom).offset(100)
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(100)
             $0.centerX.equalTo(self.view.center)
         }
     }
@@ -103,11 +61,7 @@ final class RandomPokemonViewController: UIViewController {
         
         SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(randomNumber)", completion: { result in
             
-            self.pokemonImage.kf.setImage(with: URL(string: result.sprites.front_default!))
-            self.idLabel.text = "고유번호 : \(result.id)"
-            self.nameLabel.text = "이름 : \(result.name)"
-            self.weightLabel.text = "무게 : \(result.weight/10)kg"
-            self.heightLabel.text = "키 : \(result.height/10)m"
+            self.randomPokemonInfoView.setupView(pokemonImageUrl: result.sprites.front_default ?? "", id: result.id, name: result.name, weight: result.weight, height: result.height)
         }
         )
     }

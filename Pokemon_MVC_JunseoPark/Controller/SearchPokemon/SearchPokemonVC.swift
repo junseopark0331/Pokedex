@@ -6,7 +6,7 @@ final class SearchPokemonViewController: UIViewController {
     
     weak var searchBar: UISearchBar!
     
-    private let pokemonInfoView = PokemonInfoView(coder: <#NSCoder#>)
+    private let searchPokemonInfoView = PokemonInfoView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +36,11 @@ final class SearchPokemonViewController: UIViewController {
     
     
     private func addSubView(){
-        view.addSubview(pokemonInfoView)
+        view.addSubview(searchPokemonInfoView)
     }
     
     private func setLayout(){
-        self.pokemonInfoView.snp.makeConstraints{
+        self.searchPokemonInfoView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
     }
@@ -49,11 +49,8 @@ final class SearchPokemonViewController: UIViewController {
     func pokemonInfo(pokemonNumber: Int){
         SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { [self] result in
             
-            self.pokemonInfoView.pokemonImage.kf.setImage(with: URL(string: result.sprites.front_default!))
-            self.pokemonInfoView.idLabel.text = "고유번호 : \(result.id)"
-            self.pokemonInfoView.nameLabel.text = "이름 : \(result.name)"
-            self.pokemonInfoView.weightLabel.text = "무게 : \(result.weight/10)kg"
-            self.pokemonInfoView.heightLabel.text = "키 : \(result.height/10)m"
+            self.searchPokemonInfoView.setupView(pokemonImageUrl: result.sprites.front_default ?? "", id: result.id, name: result.name, weight: result.weight, height: result.height)
+            
         }
         )
     }
@@ -80,7 +77,7 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
             }
             
         } else {
-            print("오류")
+            
         }
         
     }
