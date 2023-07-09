@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
 final class SearchPokemonViewController: UIViewController {
     
@@ -49,7 +50,13 @@ final class SearchPokemonViewController: UIViewController {
     func pokemonInfo(pokemonNumber: Int){
         SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { [self] result in
             
-            self.searchPokemonInfoView.setupView(pokemonImageUrl: result.sprites.front_default ?? "", id: result.id, name: result.name, weight: result.weight, height: result.height)
+            self.searchPokemonInfoView.setupView(
+                pokemonImageUrl: result.sprites.front_default ?? "",
+                id: result.id,
+                name: result.name,
+                weight: result.weight,
+                height: result.height
+            )
             
         }
         )
@@ -64,7 +71,6 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
         var pokemonNumber = Int(searchController.searchBar.text ?? "")
         
         if let number = pokemonNumber {
-            pokemonInfo(pokemonNumber: number)
             
             if number > 1010 {
                 let alert = UIAlertController(title: "", message: "1010 이하의 숫자를 입력해주세요", preferredStyle: .alert )
@@ -77,11 +83,11 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
             }
             
         } else {
-            
+            pokemonInfo(pokemonNumber: number)
         }
         
     }
-   
+    
 }
 
 extension SearchPokemonViewController: UISearchBarDelegate {
