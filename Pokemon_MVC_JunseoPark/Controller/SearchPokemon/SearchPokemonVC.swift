@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 import Then
 import Kingfisher
+import RxSwift
 
 final class SearchPokemonViewController: UIViewController {
     
@@ -39,6 +40,7 @@ final class SearchPokemonViewController: UIViewController {
     private func addSubView(){
         view.addSubview(searchPokemonInfoView)
     }
+    
     
     private func setLayout(){
         self.searchPokemonInfoView.snp.makeConstraints{
