@@ -6,6 +6,7 @@ class TabbarViewController: UITabBarController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
 
         let beerListVC = UINavigationController(rootViewController: PokemonListViewController())
         beerListVC.tabBarItem.title = "PokemonList"

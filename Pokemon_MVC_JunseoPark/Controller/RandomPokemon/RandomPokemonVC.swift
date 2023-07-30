@@ -18,7 +18,6 @@ final class RandomPokemonViewController: UIViewController {
         $0.addTarget(self, action: #selector(randomButtonTapped), for: .touchUpInside)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
