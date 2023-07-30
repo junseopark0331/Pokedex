@@ -74,16 +74,20 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
         
         if let number = searchBarNumber {
             
-            pokemonInfo(pokemonNumber: number)
-            
-            if number > 1010 {
-                let alert = UIAlertController(title: "", message: "1010 이하의 숫자를 입력해주세요", preferredStyle: .alert )
+            if number > 1010 || number == 0 {
+                
+                let alert = UIAlertController(title: "", message: "0을 제외한 1010 이하의 숫자를 입력해주세요", preferredStyle: .alert )
                 let defaultAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 
                 alert.addAction(defaultAction)
                 self.present(alert, animated: true)
                 
                 searchController.searchBar.text = ""
+            }
+            
+            else {
+                print(number)
+                pokemonInfo(pokemonNumber: number)
             }
             
         } else {
