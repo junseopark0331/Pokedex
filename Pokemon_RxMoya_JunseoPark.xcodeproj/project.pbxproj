@@ -21,15 +21,20 @@
 		785B889F2A49B18F00B85BDC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 785B889E2A49B18F00B85BDC /* RxCocoa */; };
 		785B88A12A49B18F00B85BDC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 785B88A02A49B18F00B85BDC /* RxSwift */; };
 		785B88A32A4C487500B85BDC /* PokemonInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785B88A22A4C487500B85BDC /* PokemonInfoView.swift */; };
-		7875D05A2A40415600C6DF4C /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875D0592A40415600C6DF4C /* Pokemon.swift */; };
-		7875D05C2A40465D00C6DF4C /* PokemonSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875D05B2A40465D00C6DF4C /* PokemonSelected.swift */; };
+		7875D05A2A40415600C6DF4C /* PokemonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875D0592A40415600C6DF4C /* PokemonData.swift */; };
+		7875D05C2A40465D00C6DF4C /* PokemonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875D05B2A40465D00C6DF4C /* PokemonInfo.swift */; };
 		78785BD02A4331A90000AD4F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 78785BCF2A4331A90000AD4F /* SnapKit */; };
 		78785BDD2A443C960000AD4F /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78785BDC2A443C960000AD4F /* PokemonInfoVC.swift */; };
 		78785BDF2A4487560000AD4F /* PokemonGeneration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78785BDE2A4487560000AD4F /* PokemonGeneration.swift */; };
+		7893491E2AD4F99100466232 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 7893491D2AD4F99100466232 /* CombineMoya */; };
+		789349202AD4F99100466232 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 7893491F2AD4F99100466232 /* Moya */; };
+		789349222AD4F99100466232 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 789349212AD4F99100466232 /* ReactiveMoya */; };
+		789349242AD4F99100466232 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 789349232AD4F99100466232 /* RxMoya */; };
+		789349262AD51E2B00466232 /* PokemonAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789349252AD51E2B00466232 /* PokemonAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7855916F2A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon_MVC_JunseoPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7855916F2A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon_RxMoya_JunseoPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785591722A3D799E00AEEEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		785591742A3D799E00AEEEF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		785591762A3D799E00AEEEF4 /* PokemonListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListVC.swift; sourceTree = "<group>"; };
@@ -40,11 +45,12 @@
 		785591942A3D7F8C00AEEEF4 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		785591992A3D8F3100AEEEF4 /* PokemonListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListTableViewCell.swift; sourceTree = "<group>"; };
 		785B88A22A4C487500B85BDC /* PokemonInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoView.swift; sourceTree = "<group>"; };
-		7875D0592A40415600C6DF4C /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
-		7875D05B2A40465D00C6DF4C /* PokemonSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSelected.swift; sourceTree = "<group>"; };
+		7875D0592A40415600C6DF4C /* PokemonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonData.swift; sourceTree = "<group>"; };
+		7875D05B2A40465D00C6DF4C /* PokemonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfo.swift; sourceTree = "<group>"; };
 		78785BD72A4335DF0000AD4F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78785BDC2A443C960000AD4F /* PokemonInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
 		78785BDE2A4487560000AD4F /* PokemonGeneration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonGeneration.swift; sourceTree = "<group>"; };
+		789349252AD51E2B00466232 /* PokemonAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +60,12 @@
 			files = (
 				78785BD02A4331A90000AD4F /* SnapKit in Frameworks */,
 				785591982A3D8A0500AEEEF4 /* Kingfisher in Frameworks */,
+				7893491E2AD4F99100466232 /* CombineMoya in Frameworks */,
 				785B88A12A49B18F00B85BDC /* RxSwift in Frameworks */,
 				785B889F2A49B18F00B85BDC /* RxCocoa in Frameworks */,
+				789349222AD4F99100466232 /* ReactiveMoya in Frameworks */,
+				789349242AD4F99100466232 /* RxMoya in Frameworks */,
+				789349202AD4F99100466232 /* Moya in Frameworks */,
 				785591922A3D7C4C00AEEEF4 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,7 +76,7 @@
 		785591662A3D799E00AEEEF4 = {
 			isa = PBXGroup;
 			children = (
-				785591712A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark */,
+				785591712A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark */,
 				785591702A3D799E00AEEEF4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,12 +84,12 @@
 		785591702A3D799E00AEEEF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7855916F2A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark.app */,
+				7855916F2A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		785591712A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark */ = {
+		785591712A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark */ = {
 			isa = PBXGroup;
 			children = (
 				785591722A3D799E00AEEEF4 /* AppDelegate.swift */,
@@ -91,7 +101,7 @@
 				7855917D2A3D79A000AEEEF4 /* LaunchScreen.storyboard */,
 				78785BD72A4335DF0000AD4F /* Info.plist */,
 			);
-			path = Pokemon_MVC_JunseoPark;
+			path = Pokemon_RxMoya_JunseoPark;
 			sourceTree = "<group>";
 		};
 		785591862A3D7B8500AEEEF4 /* View */ = {
@@ -125,9 +135,10 @@
 		7875D0562A40410900C6DF4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7875D0592A40415600C6DF4C /* Pokemon.swift */,
-				7875D05B2A40465D00C6DF4C /* PokemonSelected.swift */,
+				7875D0592A40415600C6DF4C /* PokemonData.swift */,
+				7875D05B2A40465D00C6DF4C /* PokemonInfo.swift */,
 				78785BDE2A4487560000AD4F /* PokemonGeneration.swift */,
+				789349252AD51E2B00466232 /* PokemonAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,9 +171,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7855916E2A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark */ = {
+		7855916E2A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 785591832A3D79A000AEEEF4 /* Build configuration list for PBXNativeTarget "Pokemon_MVC_JunseoPark" */;
+			buildConfigurationList = 785591832A3D79A000AEEEF4 /* Build configuration list for PBXNativeTarget "Pokemon_RxMoya_JunseoPark" */;
 			buildPhases = (
 				7855916B2A3D799E00AEEEF4 /* Sources */,
 				7855916C2A3D799E00AEEEF4 /* Frameworks */,
@@ -172,16 +183,20 @@
 			);
 			dependencies = (
 			);
-			name = Pokemon_MVC_JunseoPark;
+			name = Pokemon_RxMoya_JunseoPark;
 			packageProductDependencies = (
 				785591912A3D7C4C00AEEEF4 /* Then */,
 				785591972A3D8A0500AEEEF4 /* Kingfisher */,
 				78785BCF2A4331A90000AD4F /* SnapKit */,
 				785B889E2A49B18F00B85BDC /* RxCocoa */,
 				785B88A02A49B18F00B85BDC /* RxSwift */,
+				7893491D2AD4F99100466232 /* CombineMoya */,
+				7893491F2AD4F99100466232 /* Moya */,
+				789349212AD4F99100466232 /* ReactiveMoya */,
+				789349232AD4F99100466232 /* RxMoya */,
 			);
 			productName = Beer_MVC_JunseoPark;
-			productReference = 7855916F2A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark.app */;
+			productReference = 7855916F2A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7855916A2A3D799E00AEEEF4 /* Build configuration list for PBXProject "Pokemon_MVC_JunseoPark" */;
+			buildConfigurationList = 7855916A2A3D799E00AEEEF4 /* Build configuration list for PBXProject "Pokemon_RxMoya_JunseoPark" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -213,12 +228,13 @@
 				785591962A3D8A0500AEEEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				78785BCE2A4331A90000AD4F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				785B889D2A49B18F00B85BDC /* XCRemoteSwiftPackageReference "RxSwift" */,
+				7893491C2AD4F99100466232 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 785591702A3D799E00AEEEF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7855916E2A3D799E00AEEEF4 /* Pokemon_MVC_JunseoPark */,
+				7855916E2A3D799E00AEEEF4 /* Pokemon_RxMoya_JunseoPark */,
 			);
 		};
 /* End PBXProject section */
@@ -241,17 +257,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				785591772A3D799E00AEEEF4 /* PokemonListVC.swift in Sources */,
-				7875D05A2A40415600C6DF4C /* Pokemon.swift in Sources */,
+				7875D05A2A40415600C6DF4C /* PokemonData.swift in Sources */,
 				78785BDD2A443C960000AD4F /* PokemonInfoVC.swift in Sources */,
 				785591732A3D799E00AEEEF4 /* AppDelegate.swift in Sources */,
 				785B88A32A4C487500B85BDC /* PokemonInfoView.swift in Sources */,
 				78785BDF2A4487560000AD4F /* PokemonGeneration.swift in Sources */,
 				7855919A2A3D8F3100AEEEF4 /* PokemonListTableViewCell.swift in Sources */,
-				7875D05C2A40465D00C6DF4C /* PokemonSelected.swift in Sources */,
+				7875D05C2A40465D00C6DF4C /* PokemonInfo.swift in Sources */,
 				785591952A3D7F8C00AEEEF4 /* TabbarViewController.swift in Sources */,
 				785591882A3D7B9A00AEEEF4 /* SearchPokemonVC.swift in Sources */,
 				785591752A3D799E00AEEEF4 /* SceneDelegate.swift in Sources */,
 				7855918A2A3D7BAA00AEEEF4 /* RandomPokemonVC.swift in Sources */,
+				789349262AD51E2B00466232 /* PokemonAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5T78F59TU2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pokemon_MVC_JunseoPark/Info.plist;
+				INFOPLIST_FILE = Pokemon_RxMoya_JunseoPark/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -423,7 +440,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5T78F59TU2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pokemon_MVC_JunseoPark/Info.plist;
+				INFOPLIST_FILE = Pokemon_RxMoya_JunseoPark/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -448,7 +465,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7855916A2A3D799E00AEEEF4 /* Build configuration list for PBXProject "Pokemon_MVC_JunseoPark" */ = {
+		7855916A2A3D799E00AEEEF4 /* Build configuration list for PBXProject "Pokemon_RxMoya_JunseoPark" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				785591812A3D79A000AEEEF4 /* Debug */,
@@ -457,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		785591832A3D79A000AEEEF4 /* Build configuration list for PBXNativeTarget "Pokemon_MVC_JunseoPark" */ = {
+		785591832A3D79A000AEEEF4 /* Build configuration list for PBXNativeTarget "Pokemon_RxMoya_JunseoPark" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				785591842A3D79A000AEEEF4 /* Debug */,
@@ -501,6 +518,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		7893491C2AD4F99100466232 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -528,6 +553,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 78785BCE2A4331A90000AD4F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		7893491D2AD4F99100466232 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7893491C2AD4F99100466232 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		7893491F2AD4F99100466232 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7893491C2AD4F99100466232 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		789349212AD4F99100466232 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7893491C2AD4F99100466232 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		789349232AD4F99100466232 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7893491C2AD4F99100466232 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

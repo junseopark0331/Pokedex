@@ -58,11 +58,11 @@ final class RandomPokemonViewController: UIViewController {
     private func randomPokemon(){
         var randomNumber = Int.random(in: 1...151)
         
-        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(randomNumber)", completion: { result in
-            
-            self.randomPokemonInfoView.setupView(pokemonImageUrl: result.sprites.front_default ?? "", id: result.id, name: result.name, weight: result.weight, height: result.height)
-        }
-        )
+//        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(randomNumber)", completion: { result in
+//            
+//            self.randomPokemonInfoView.setupView(pokemonImageUrl: result.sprites.front_default ?? "", id: result.id, name: result.name, weight: result.weight, height: result.height)
+//        }
+//        )
     }
     
     @objc private func randomButtonTapped() {

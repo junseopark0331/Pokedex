@@ -50,18 +50,17 @@ final class SearchPokemonViewController: UIViewController {
     
     
     func pokemonInfo(pokemonNumber: Int){
-        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { [self] result in
-            
-            self.searchPokemonInfoView.setupView(
-                pokemonImageUrl: result.sprites.front_default ?? "",
-                id: result.id,
-                name: result.name,
-                weight: result.weight,
-                height: result.height
-            )
-            
-        }
-        )
+//        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(pokemonNumber)", completion: { [self] result in
+//            
+//            self.searchPokemonInfoView.setupView(
+//                pokemonImageUrl: result.sprites.front_default ?? "",
+//                id: result.id,
+//                name: result.name,
+//                weight: result.weight,
+//                height: result.height
+//            )
+//        }
+//        )
     }
     
 }
@@ -91,7 +90,7 @@ extension SearchPokemonViewController: UISearchResultsUpdating {
             }
             
         } else {
-//            pokemonInfo(pokemonNumber: searchBarNumber!)
+            //            pokemonInfo(pokemonNumber: searchBarNumber!)
         }
         
     }

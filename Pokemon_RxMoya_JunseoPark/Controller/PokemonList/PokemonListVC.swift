@@ -5,7 +5,7 @@ import Kingfisher
 
 final class PokemonListViewController: UIViewController {
     
-    var pokemon = [PokemonEntry]()
+    var pokemon = [PokemonData]()
     
     private let refreshControl = UIRefreshControl()
     
@@ -70,9 +70,9 @@ extension PokemonListViewController: UITableViewDataSource {
         cell.pokemonImage.kf.setImage(with: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(indexPath.row + 1).png"))
         
         
-        PokemonListApi().getPokemonListData(completion: { url in
-            cell.pokemonNameLabel.text = url[indexPath.row].name
-        })
+//        PokemonListApi().getPokemonListData(completion: { url in
+//            cell.pokemonNameLabel.text = url[indexPath.row].name
+//        })
         
         return cell
     }
@@ -82,22 +82,19 @@ extension PokemonListViewController: UITableViewDataSource {
 extension PokemonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(indexPath.row + 1)/",
-                                                    completion: { result in
-            
-            let pokemonInfoVC = PokemonInformationViewController()
-            
-            pokemonInfoVC.pokemonImageURL = result.sprites.front_default ?? ""
-            pokemonInfoVC.pokemonName = result.name
-            pokemonInfoVC.pokemonId = result.id
-            pokemonInfoVC.pokemonWeight = result.weight
-            pokemonInfoVC.pokemonHeight = result.height
-            
-            self.navigationController?.pushViewController(pokemonInfoVC, animated: true)
-            
-        })
-        
+//        SelectedPokemonApi().getSelectedPokemonData(url: "https://pokeapi.co/api/v2/pokemon/\(indexPath.row + 1)/",
+//                                                    completion: { result in
+//            
+//            let pokemonInfoVC = PokemonInformationViewController()
+//            
+//            pokemonInfoVC.pokemonImageURL = result.sprites.front_default ?? ""
+//            pokemonInfoVC.pokemonName = result.name
+//            pokemonInfoVC.pokemonId = result.id
+//            pokemonInfoVC.pokemonWeight = result.weight
+//            pokemonInfoVC.pokemonHeight = result.height
+//            
+//            self.navigationController?.pushViewController(pokemonInfoVC, animated: true)
+//            
+//        })
     }
-    
 }
-
